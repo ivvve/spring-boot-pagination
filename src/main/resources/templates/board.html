@@ -27,25 +27,24 @@
 
     <nav style="text-align: center;">
         <ul class="pagination"
-            th:with="start=${T(Math).floor(boardList.number/10) + 1},
-                    last=(${start + 9 == boardList.totalPages ? start + 9 : boardList.totalPages})">
-
-            <li class="'disabled'">
+            th:with="start=${T(Math).floor(boardList.number/10)*10 + 1},
+                    last=(${start + 9 < boardList.totalPages ? start + 9 : boardList.totalPages})">
+            <li>
                 <a href="#" aria-label="First">
                     <span aria-hidden="true">First</span>
                 </a>
             </li>
-            <li class="disabled">
+            <li th:class="${boardList.first} ? 'disabled'">
                 <a href="#" aria-label="Previous">
                     <span aria-hidden="true">&lt;</span>
                 </a>
             </li>
-            <li class="active"><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#">5</a></li>
-            <li>
+
+            <li th:each="page: ${#numbers.sequence(start, last)}" th:class="${page == boardList.number + 1} ? 'active'">
+                <a th:text="${page}" href="#"></a>
+            </li>
+
+            <li th:class="${boardList.last} ? 'disabled'">
                 <a href="#" aria-label="Next">
                     <span aria-hidden="true">&gt;</span>
                 </a>
