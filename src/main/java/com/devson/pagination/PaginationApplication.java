@@ -21,7 +21,7 @@ public class PaginationApplication {
     @Bean
     public CommandLineRunner commandLineRunner(UserRepository userRepository, BoardRepository boardRepository) {
         return args -> {
-            IntStream.rangeClosed(1, 200).forEach(i -> {
+            IntStream.rangeClosed(1, 154).forEach(i -> {
                 UserEntity user =  UserEntity.builder()
                         .name("tester" + i)
                         .build();
