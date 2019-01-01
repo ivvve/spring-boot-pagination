@@ -26,8 +26,11 @@
 
 
     <nav style="text-align: center;">
-        <ul class="pagination">
-            <li class="disabled">
+        <ul class="pagination"
+            th:with="start=${T(Math).floor(boardList.number/10) + 1},
+                    last=(${start + 9 == boardList.totalPages ? start + 9 : boardList.totalPages})">
+
+            <li class="'disabled'">
                 <a href="#" aria-label="First">
                     <span aria-hidden="true">First</span>
                 </a>
