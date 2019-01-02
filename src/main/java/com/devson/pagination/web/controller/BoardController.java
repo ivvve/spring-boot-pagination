@@ -19,7 +19,7 @@ public class BoardController {
         this.boardService = boardService;
     }
 
-    @GetMapping("/boards")
+    @GetMapping(value = {"/**"})
     public String boardView(Model model, @PageableDefault Pageable pageable) {
         Page<BoardEntity> boardList = boardService.getBoard(pageable);
         model.addAttribute("boardList", boardList);
