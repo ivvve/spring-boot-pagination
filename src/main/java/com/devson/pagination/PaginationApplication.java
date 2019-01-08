@@ -25,8 +25,8 @@ public class PaginationApplication {
      * @return
      */
     @Bean
-    public CommandLineRunner commandLineRunner(UserRepository userRepository, BoardRepository boardRepository) {
-        return args -> {
+    public CommandLineRunner initData(UserRepository userRepository, BoardRepository boardRepository) {
+        return args ->
             IntStream.rangeClosed(1, 154).forEach(i -> {
                 UserEntity user =  UserEntity.builder()
                         .name("tester" + i)
@@ -41,7 +41,6 @@ public class PaginationApplication {
 
                 boardRepository.save(board);
             });
-        };
     }
 }
 
