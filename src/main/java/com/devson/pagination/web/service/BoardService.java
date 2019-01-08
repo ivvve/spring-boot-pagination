@@ -18,6 +18,11 @@ public class BoardService {
         this.boardRepository = boardRepository;
     }
 
+    /**
+     * 해당 페이지의 게시물을 가져온다.
+     * @param pageable
+     * @return
+     */
     public Page<BoardEntity> getBoard(Pageable pageable) {
         int pageNumber = (pageable.getPageNumber() == 0) ? 0 : pageable.getPageNumber() - 1;
         pageable = PageRequest.of(pageNumber, PAGE_SIZE, new Sort(Sort.Direction.DESC, "id"));

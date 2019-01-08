@@ -18,6 +18,12 @@ public class PaginationApplication {
         SpringApplication.run(PaginationApplication.class, args);
     }
 
+    /**
+     * 154 개의 사용자와 게시물을 생성
+     * @param userRepository
+     * @param boardRepository
+     * @return
+     */
     @Bean
     public CommandLineRunner commandLineRunner(UserRepository userRepository, BoardRepository boardRepository) {
         return args -> {

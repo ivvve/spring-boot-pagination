@@ -9,7 +9,7 @@ import javax.persistence.*;
 @Getter
 @NoArgsConstructor
 @Entity
-@Table(name = "BOARD")
+@Table(name = "BOARD") // 없을 경우 BOARD_ENTITY로 생성됨
 public class BoardEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
